@@ -1,4 +1,4 @@
 <?php
-    $dsn = 'mysql:dbname=mydb;port=3306';
+    $dsn = 'mysql:dbname=musicstest;port=3306';
     $conn = new PDO($dsn, 'root', '');
 ?>

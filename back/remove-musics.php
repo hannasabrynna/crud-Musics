@@ -1,9 +1,9 @@
 <?php
     require('conn.php');
     
-    $musicas_id = $_GET['id'];
+    $musicas = $_GET['ID'];
     
-    $conn->query("DELETE FROM musics WHERE ID = $musicas_id");
+    $conn->query(" DELETE FROM musics WHERE ID = '$musicas' ");
     
     header('Access-Control-Allow-Origin: *');
     http_response_code(201);

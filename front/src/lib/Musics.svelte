@@ -9,7 +9,7 @@
   };
 
   function handleForm() {
-    addMusicas(form.name,form.artista, form.album, form.genero, $currentUser.id)
+    addMusicas(form.name,form.artista, form.album, form.genero, $currentUser.ID)
 
     form.name = '';
     form.artista = '';
@@ -18,8 +18,9 @@
 
   }
 
-  function remove(id) {
-    removeMusicas(id, $currentUser.id)
+  function remove(ID) {
+    removeMusicas(ID, $currentUser.ID)
+
   }
 </script>
 
@@ -27,10 +28,10 @@
   <div>
     <h2>Musics</h2>
     {#each $musicas as prod}
-        <div>{prod.name} <a href="#" on:click|preventDefault={() => remove(prod.id)}>remover</a> </div>
+        <div>{prod.NOME},{prod.ARTISTA} ,{prod.ALBUM}, {prod.GENERO} <a href="#" on:click|preventDefault={() => remove(prod.ID)}>Remover</a> </div>
     {/each}
     <form on:submit|preventDefault={handleForm}>
-      <fieldset>
+      <fieldset> 
         <legend>Add your musics below:</legend>
         <input
           type="text"

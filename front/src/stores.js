@@ -40,8 +40,8 @@ export function addMusicas(name, artista, album, genero, USERS_ID) {
     loadMusicas(USERS_ID)
 }
 
-export async function removeMusicas(id, USERS_ID) {
-    await fetch('http://localhost:8000/remove-musics.php?id=' + id, {
+export async function removeMusicas(ID, USERS_ID) {
+    await fetch('http://localhost:8000/remove-musics.php?ID=' + ID, {
         method: 'get'
     });
     loadMusicas(USERS_ID)
@@ -49,7 +49,7 @@ export async function removeMusicas(id, USERS_ID) {
 
 async function loadMusicas(USERS_ID) {
     // console.log('deve carregar os produtos do usuário ' + user_id)
-    const response = await fetch('http://localhost:8000/get-musics.php?USERS_ID'+USERS_ID, {
+    const response = await fetch('http://localhost:8000/get-musics.php?USERS_ID='+ USERS_ID, {
         method: 'get'
     });
     
@@ -62,6 +62,8 @@ export const login = async (username, pw) => {
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', pw);
+
+
    
     const response = await fetch('http://localhost:8000/login.php', {
         method: 'post',
@@ -73,5 +75,5 @@ export const login = async (username, pw) => {
     }
     const data = await response.json();
     currentUser.set(data);
-    loadMusicas(data.id)
+    loadMusicas(data.ID)
 }

@@ -4,7 +4,8 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $result = $conn->query("SELECT USERS_ID, USERNAME FROM users WHERE USERNAME = '$username' AND PASSWORD = '$password'" );
+
+    $result = $conn->query("SELECT ID, USERNAME FROM users WHERE USERNAME = '$username' AND PASSWORD = '$password'" );
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
     header('Access-Control-Allow-Origin: *');

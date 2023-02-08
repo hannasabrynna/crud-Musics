@@ -8,7 +8,7 @@
   };
 
   const handleForm = async () => {
-    await login(form.username, form.pw );
+    await login(form.username, form.pw);
     if ($currentUser) {
         $currentPage = 'musicas';
     }
